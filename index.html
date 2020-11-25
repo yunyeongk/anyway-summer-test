@@ -1,0 +1,92 @@
+<html>
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <title>암튼 여름이었다</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="blank"><p><img src="assets/logo.svg" alt="logo"></p></div>
+    <div class="wrap">
+        <div id="jihoon_normal" class="jihoonpic"><img src="assets/jihoon_normal.png" ></div>
+        <div id="namebox_kimjihoon" class="namebox"><p>김지훈</p></div>
+        <div id="namebox_none" class="namebox"><p>???</p></div>
+        <div id="namebox_you" class="namebox"><p>당신</p></div>
+        <div id="story1" class="choice"> <!--스토리 1번 선택지-->
+            <div class="choice_wrap">
+                <div class="answer" onclick="location.href='story/A16012211.html'"><p>이게 어디 새파랗게 어린게 훈수질이야?</p></div>
+                <div class="answer" onclick="location.href='story/A21142211.html'"><p>그치만 아직 시작 전이잖아.</p></div>
+                <div class="answer" onclick="location.href='story/A15232211.html'"><p>내가 늦은게 아니라 네가 빨리 온 거겠지.</p></div>
+            </div>
+        </div>
+        <div class="logbox">
+            <p class="log">오늘은 오후에 동아리 수업이 있는 금요일.</p><!--로그0-->
+            <p class="log">점심시간이 거의 끝나가고 있었다.</p><!--로그1-->
+            <p class="log">동아리 교실로 향하려던 중...</p><!--로그2-->
+            <p class="log">누나!!!</p><!--로그3-->
+            <p class="log">익숙한 목소리가 우렁차게 내 이름을 부른다.</p><!--로그4-->
+            <p class="log"> </p><!--로그5-->
+            <p class="log">아직도 교실에 있었어요?</p><!--로그6-->
+            <p class="log">동아리 교실에 없길래 왔는데.</p><!--로그7-->
+            <p class="log">어..., 이제 가려고 했어.</p><!--로그8-->
+            <p class="log">기장이 1학년보다 늦으면 어떡해요?</p><!--로그9-->
+            <p class="log">기장이 1학년보다 늦으면 어떡해요?</p><!--로그10-->
+            
+
+            <div id="nextbutton"><img src="assets/next_button.svg" alt="button"></div>
+        </div>
+    </div>
+    <div class="blank"></div>
+</div>
+
+<script>
+var i = 0;
+var nextButton = document.getElementById("nextbutton");
+var log = document.getElementsByClassName("log");
+var nameboxNone = document.getElementById("namebox_none");
+var nameboxJihoon = document.getElementById("namebox_kimjihoon");
+var nameboxYou = document.getElementById("namebox_you");
+var jihoonNormal = document.getElementById("jihoon_normal");
+var story1 = document.getElementById("story1");
+
+nextButton.addEventListener("click", function(){
+i++; //버튼 클릭할 때마다 변수 증가, 변수=로그 번호로 변수 번호에 맞는 로그 보여줌
+console.log(i);
+
+if(i==3){ //익명 네임박스 나타나는 로그
+nameboxNone.style.display="block"
+}else if(i>4) { //지훈 아바타 이미지 나타나는 로그
+jihoonNormal.style.display="block" 
+}else {
+nameboxNone.style.display="none"
+jihoonNormal.style.display="none"
+} ;
+
+if(i==6 || i==7 || i==9 || i==10){ //지훈 네임박스 나타나는 로그
+nameboxJihoon.style.display="block"
+nameboxYou.style.display="none"
+}else if(i==8){ //플레이어 네임박스 나타나는 로그
+nameboxYou.style.display="block"
+}else { 
+nameboxJihoon.style.display="none"
+nameboxYou.style.display="none"
+} ;
+
+if(i>10){
+    event.preventDefault;
+}
+
+var loghidden = log[i-1];
+var logshow = log[i];
+loghidden.style.display="none";
+logshow.style.display="block";
+
+if(i==10){ //선택지에서 next button 숨기기
+    story1.style.display="block";
+    nextButton.style.display="none";
+};
+});
+
+</script>
+</body>
+</html>
