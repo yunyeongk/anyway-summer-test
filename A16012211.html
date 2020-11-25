@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/style.css">
+        <title>암튼 여름이었다</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="blank"><p><img src="../assets/logo.svg" alt="logo"></p></div>
+            <div class="wrap">
+                <div id="jihoon_normal" class="jihoonpic" style="display: block;"><img src="../assets/jihoon_normal.png" ></div>
+                <div id="jihoon_smile1" class="jihoonpic" style="display: none;"><img src="../assets/jihoon_smile1.PNG" ></div>
+                <div id="namebox_kimjihoon" class="namebox"><p>김지훈</p></div>
+                <div id="namebox_none" class="namebox"><p>???</p></div>
+                <div id="namebox_you" class="namebox" style="display: block;"><p>당신</p></div>
+                <div class="logbox">
+                    <p class="log">이게 어디 새파랗게 어린게 훈수질이야?</p><!--로그0-->
+                    <p class="log">푸하핫.</p><!--로그1-->
+                    <p class="log">지훈이는 내 대답에 크게 웃었다.</p><!--로그2-->
+                    <p class="log">역시 누나 재밌다니까요.</p><!--로그3-->
+                    <p class="log">(농담 아닌데...)</p><!--로그4-->
+                    <p class="log">아무튼, 이제 가려고 했다면서요.</p><!--로그5-->
+                    <p class="log">그럼 같이 가요.</p><!--로그6-->
+                    <p class="log">알겠어.</p><!--로그7-->
+                    <p class="log">가방 챙겨와야 하니까 잠시만 기다려.</p><!--로그8-->
+                    <p class="log">얼마든지요~</p><!--로그9-->
+                    <div id="nextbutton"><img src="../assets/next_button.svg" alt="button"></div>
+                </div>
+            </div>
+            <div class="blank"></div>
+        </div>
+
+        <script>
+        var i = 0;
+        var nextbutton = document.getElementById("nextbutton");
+        var log = document.getElementsByClassName("log");
+        var nameboxNone = document.getElementById("namebox_none");
+        var nameboxJihoon = document.getElementById("namebox_kimjihoon");
+        var nameboxYou = document.getElementById("namebox_you");
+        var jihoonNormal = document.getElementById("jihoon_normal");
+        var jihoonSmile1 = document.getElementById("jihoon_smile1");
+        
+        nextbutton.addEventListener("click", function(){
+        i++; //버튼 클릭할 때마다 변수 증가, 변수=로그 번호로 변수 번호에 맞는 로그 보여줌
+        console.log(i);
+        
+        if(i==7 || i==8){ //플레이어 네임박스 나타나는 로그
+            nameboxYou.style.display="block"
+        }else if(i==1 || i==3 || i==5 || i==6 || i==9){ //지훈 네임박스 나타나는 로그
+        nameboxJihoon.style.display="block"
+        }else {
+            nameboxYou.style.display="none"
+            nameboxJihoon.style.display="none"
+        } ;
+
+        if(i==0 || i==5 || i==6 || i==7 || i==8) { //지훈 노멀 아바타 이미지 나타나는 로그
+        jihoonNormal.style.display="block"
+        }else{
+            jihoonNormal.style.display="none"
+        };
+        
+        if(i==1 || i==2 || i==3 || i==4 || i==9){ //지훈 스마일1 아바타 이미지 나타나는 로그
+        jihoonSmile1.style.display="block"
+        }else {
+        jihoonSmile1.style.display="none"
+        };
+        
+        var loghidden = log[i-1];
+        var logshow = log[i];
+        loghidden.style.display="none";
+        logshow.style.display="block";
+
+        if(i==9){ //마지막에 next button 숨기기
+        nextbutton.style.display="none";
+        };
+        
+        });
+        </script>
+    </body>
+</html>
